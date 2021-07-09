@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<block>
+  <name>Watterson Channel Model</name>
+  <key>watterson_watterson</key>
+  <category>[watterson]</category>
+  <import>import watterson</import>
+  <make>watterson.watterson($doppler_spread, $n_paths, $path_gains_dB, $path_delays_s)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+
+  <param>
+    <name>Doppler Spread (Hz)</name>
+    <key>doppler_spread</key>
+    <type>float</type>
+  </param>
+
+    <param>
+    <name>Number of Paths</name>
+    <key>n_paths</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Path Gains (dB)</name>
+    <key>path_gains_dB</key>
+    <type>string</type>
+  </param>
+
+  <param>
+    <name>Path Delays (s)</name>
+    <key>path_delays_s</key>
+    <type>string</type>
+  </param>
+
+
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>
